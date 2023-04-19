@@ -7,14 +7,25 @@ document.addEventListener("DOMContentLoaded", function(){
                 alert("You clicked Submit!");
             } else {
                 let gameType = this.getAttribute("data-type");
-                alert(`You clicked ${gameType}`);
+                rungame("gametype");
             }
         })
     }
+    rungame("addition"); 
 })
+/**
+ * The main game "loop", called when script is first loaded
+ * and after the user's answer has been processed
+ */
+function rungame(gametype) {
+ let num1 = Math.floor(Math.random() * 25) + 1;
+ let num2 = Math.floor(Math.random() * 25) + 1;
 
-function rungame() {
-
+ if (gametype === "addition"){
+    displayAdditionQuestion(num1, num2); 
+ } else {
+    alert('unknown gametype: ${gametype}')
+ }
 }
 
 function checkAnswer() {
